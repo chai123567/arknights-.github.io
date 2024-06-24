@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="./style/commen.css">
+    <link rel="stylesheet/less" type="text/css" href="./style/m.index.less" media="screen and (max-width:625px)" />
+    <link rel="stylesheet/less" type="text/css" href="./style/index.less" media="screen and (min-width:625px)" />
+    <script src="./js/less.min.js"></script>
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="shortcut icon" href="./img/icon/favicon.ico" />
+    <title>Arknights - World</title>
+    <style>
+       body {
+            background: url('./img/special/未命名作品 3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+       
+       
+       /* Carousel styles */
+        .carousel {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            border-top: 10px solid white; /* White border on top */
+            border-bottom: 10px solid white; /* White border on bottom */
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Styling for the new text */
+        .official-wallpaper-text {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 70px 0 20px 0;
+        }
+        
+        /* Styling for the image below the carousel */
+        .below-carousel-image {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto 0 auto; /* Margin to separate from the carousel */
+        }
+    </style>
+</head>
+
+<body>
+    <header id="top">
+        <nav>
+            <ul class="nav1">
+                <li class="clearfix"><a href="index.html"><span class="iconfont icon-shouye"></span>HOME</a></li>
+                <li class="clearfix"><a href="./official.html"><span class="iconfont icon-renshishuju"></span>CHARACTER</a></li>
+                <li class="clearfix"><a href=""><span class="iconfont icon-record"></span>SPECIAL</a></li>
+                <li class="clearfix"><a href="world.html"><span class="iconfont icon-set"></span>WORLD</a></li>
+                <li class="clearfix"><a href="./news.html"><span class="iconfont icon-cz-qbdj"></span>NEWS</a></li>
+                <li class="clearfix">
+                    <p><span class="iconfont icon-geren"></span>PERSONAL</p>
+                    <section class="nav2">
+                        <ul>
+                            <li><a href="./login.html"><span class="iconfont icon-denglu"></span>Log in</a></li>
+                            <li><a href="./login.html"><span class="iconfont icon-zhuce"></span>Register</a></li>
+                        </ul>
+                    </section>
+                </li>
+            </ul>
+        </nav>
+        <ul class="footNav">
+            <li class="toTop"><a href="#top"><span class="iconfont icon-dingbu"></span></a></li>
+            <li class="music"><span id="icon" class="iconfont icon-24gl-play"></span></li>
+            <audio id="song">
+                <source src="./media/Speed of Light - 塞壬唱片-MSR、二宮愛、DJ OKAWARI.mp3">
+            </audio>
+            <script src="./js/index.js"></script>
+        </ul>
+    </header>
+
+    <main>
+        <!-- Add the text here -->
+        <div class="official-wallpaper-text">Arknights Official Wallpaper</div>
+
+        <!-- Add the carousel section here -->
+        <section class="carousel">
+          <div class="carousel-container">
+            <div class="carousel-slide">
+              <img src="../img/special/picture1.jpg" alt="Image 1">
+            </div>
+            <div class="carousel-slide">
+              <img src="../img/special/picture2.jpg" alt="Image 2">
+            </div>
+            <div class="carousel-slide">
+              <img src="../img/special/picture3.jpg" alt="Image 3">
+            </div>
+            <div class="carousel-slide">
+                <img src="../img/special/picture4.jpg" alt="Image 4">
+            </div>
+            <div class="carousel-slide">
+                <img src="../img/special/picture5.jpg" alt="Image 5">
+              </div>
+          </div>
+          <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
+          <a class="next" onclick="moveSlides(1)">&#10095;</a>
+        </section>
+
+          <!-- Add the image below the carousel -->
+          <img src="img/special/follow us.jpg" alt="Follow Us" class="below-carousel-image">
+    </main>
+
+    <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("carousel-slide");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+    function moveSlides(n) {
+      slideIndex += n;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      if (slideIndex < 1) {slideIndex = slides.length}
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+
+    showSlides();
+    </script>
+</body>
+
+</html>
